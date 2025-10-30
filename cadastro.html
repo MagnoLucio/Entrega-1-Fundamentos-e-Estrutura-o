@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro — Organização Exemplo</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html"><img src="assets/images/logo.png" alt="Logo da organização" class="logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="projetos.html">Projetos Sociais</a></li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section aria-labelledby="cadastro">
+            <div class="container">
+                <h1 id="cadastro">Formulário de Cadastro</h1>
+                <p>Preencha seus dados para participar dos nossos projetos como voluntário.</p>
+
+                <figure>
+                    <img src="img/6.png" alt="Cadastro de voluntário" width="600" height="600">
+                    <figcaption>Imagem 6 — Cadastro de voluntários.</figcaption>
+                </figure>
+
+                <form action="#" method="post" novalidate>
+                    <fieldset>
+                        <legend>Informações Pessoais</legend>
+
+                        <label for="nome">Nome completo</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
+
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required placeholder="exemplo@email.com">
+
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" name="cpf" required placeholder="000.000.000-00" maxlength="14">
+
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" required placeholder="(00) 00000-0000"
+                            maxlength="15">
+
+                        <label for="nascimento">Data de nascimento</label>
+                        <input type="date" id="nascimento" name="nascimento" required>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Endereço</legend>
+
+                        <label for="endereco">Endereço</label>
+                        <input type="text" id="endereco" name="endereco" required
+                            placeholder="Rua, número e complemento">
+
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep" name="cep" required placeholder="00000-000" maxlength="9">
+
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" name="cidade" required placeholder="Digite sua cidade">
+
+                        <label for="estado">Estado</label>
+                        <select id="estado" name="estado" required>
+                            <option value="">Selecione</option>
+                            <option value="SP">SP</option>
+                            <option value="RJ">RJ</option>
+                            <option value="MG">MG</option>
+                            <option value="RS">RS</option>
+                            <option value="BA">BA</option>
+                        </select>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Interesse no Voluntariado</legend>
+
+                        <label for="disponibilidade">Disponibilidade</label>
+                        <select id="disponibilidade" name="disponibilidade" required>
+                            <option value="">Selecione</option>
+                            <option value="manhã">Manhã</option>
+                            <option value="tarde">Tarde</option>
+                            <option value="noite">Noite</option>
+                            <option value="fim-de-semana">Fins de semana</option>
+                        </select>
+
+                        <label for="habilidades">Habilidades/Interesses</label>
+                        <textarea id="habilidades" name="habilidades" rows="4"
+                            placeholder="Ex: Educação, culinária, organização de eventos, etc."></textarea>
+                    </fieldset>
+
+                    <button type="submit">Enviar Cadastro</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="ano"></span> Organização Exemplo — Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
