@@ -1,0 +1,753 @@
+/* ==========================================================================
+   Design System - Variáveis CSS
+   ========================================================================== */
+
+:root {
+    /* Cores */
+    --color-primary-500: #007bff; /* Azul principal (base) */
+    --color-primary-600: #0056b3; /* Azul escuro (hover/active) */
+    --color-secondary-500: #28a745; /* Verde (sucesso/ênfase) */
+    --color-secondary-600: #1e7e34; /* Verde escuro */
+    --color-accent-500: #ffc107; /* Amarelo (alerta/destaque) */
+    --color-neutral-900: #212529; /* Preto/Texto principal */
+    --color-neutral-100: #f8f9fa; /* Cinza claro/Fundo */
+    --color-neutral-000: #ffffff; /* Branco */
+
+    /* Tipografia */
+    --font-family-base: 'Arial', sans-serif;
+    --font-size-xs: 0.75rem; /* 12px */
+    --font-size-sm: 0.875rem; /* 14px */
+    --font-size-base: 1rem; /* 16px */
+    --font-size-lg: 1.25rem; /* 20px */
+    --font-size-xl: 1.5rem; /* 24px */
+    --font-size-2xl: 2rem; /* 32px */
+    --font-size-3xl: 3rem; /* 48px */
+
+    /* Espaçamento Modular (8px base) */
+    --spacing-xs: 0.5rem; /* 8px */
+    --spacing-sm: 1rem; /* 16px */
+    --spacing-md: 1.5rem; /* 24px */
+    --spacing-lg: 2rem; /* 32px */
+    --spacing-xl: 3rem; /* 48px */
+    --spacing-2xl: 4rem; /* 64px */
+
+    /* Layout */
+    --layout-max-width: 1200px;
+    --layout-grid-columns: 12;
+    --layout-grid-gap: var(--spacing-md);
+}
+
+/* ==========================================================================
+   Reset Básico
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-base);
+    color: var(--color-neutral-900);
+    background-color: var(--color-neutral-100);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: var(--color-primary-500);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-primary-600);
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================================================
+   Layout Base
+   ========================================================================== */
+
+.container {
+    width: 100%;
+    max-width: var(--layout-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-sm);
+    padding-right: var(--spacing-sm);
+}
+
+main {
+    flex-grow: 1;
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+}
+
+section {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+}
+
+/* ==========================================================================
+   Tipografia Hierárquica
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-base);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    font-weight: bold;
+}
+
+h1 {
+    font-size: var(--font-size-3xl);
+    color: var(--color-primary-600);
+}
+
+h2 {
+    font-size: var(--font-size-2xl);
+    color: var(--color-neutral-900);
+}
+
+h3 {
+    font-size: var(--font-size-xl);
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ==========================================================================
+   Grid Customizado (12 Colunas)
+   ========================================================================== */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(var(--layout-grid-columns), 1fr);
+    gap: var(--layout-grid-gap);
+}
+
+/* Classes de Colunas */
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-5 { grid-column: span 5; }
+.col-6 { grid-column: span 6; }
+.col-7 { grid-column: span 7; }
+.col-8 { grid-column: span 8; }
+.col-9 { grid-column: span 9; }
+.col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; }
+.col-12 { grid-column: span 12; }
+
+/* ==========================================================================
+   Flexbox Utility
+   ========================================================================== */
+
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-between {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   Header e Navegação
+   ========================================================================== */
+
+header {
+    background-color: var(--color-neutral-000);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: var(--spacing-sm) 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 40px; /* Ajuste conforme a imagem real do logo */
+    width: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+nav a {
+    color: var(--color-neutral-900);
+    font-weight: bold;
+    padding: var(--spacing-xs) 0;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary-500);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+/* Menu Mobile (Hamburguer) - Inicialmente escondido */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: var(--font-size-xl);
+    background: none;
+    border: none;
+    color: var(--color-neutral-900);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+    background-color: var(--color-neutral-900);
+    color: var(--color-neutral-100);
+    padding: var(--spacing-md) 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   Componentes de Conteúdo (index.html e projetos.html)
+   ========================================================================== */
+
+section .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--layout-grid-gap);
+}
+
+section figure {
+    margin-bottom: var(--spacing-md);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem quadrada preencha o espaço */
+}
+
+figcaption {
+    font-size: var(--font-size-sm);
+    color: var(--color-neutral-900);
+    padding: var(--spacing-xs);
+    text-align: center;
+    background-color: var(--color-neutral-100);
+}
+
+/* Layout Específico para Seções com Imagem e Texto */
+#sobre .container,
+#contato .container,
+#projetos .container > div {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--layout-grid-gap);
+}
+
+/* ==========================================================================
+   Componentes de Interface - Botões
+   ========================================================================== */
+
+button,
+.btn {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    border: 2px solid transparent;
+    font-size: var(--font-size-base);
+}
+
+.btn-primary {
+    background-color: var(--color-primary-500);
+    color: var(--color-neutral-000);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-600);
+    transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    background-color: var(--color-primary-600);
+    transform: translateY(0);
+}
+
+button[type="submit"] {
+    /* Estilo para o botão de formulário */
+    width: 100%;
+    margin-top: var(--spacing-md);
+}
+
+/* ==========================================================================
+   Componentes de Interface - Formulários (cadastro.html)
+   ========================================================================== */
+
+form {
+    background-color: var(--color-neutral-000);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+fieldset {
+    border: 1px solid var(--color-neutral-100);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    border-radius: 4px;
+}
+
+legend {
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    color: var(--color-primary-500);
+    padding: 0 var(--spacing-xs);
+}
+
+label {
+    display: block;
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+    font-weight: bold;
+    font-size: var(--font-size-sm);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: var(--font-size-base);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--color-primary-500);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Validação Visual */
+input:required:invalid:not(:placeholder-shown) {
+    border-color: #dc3545; /* Vermelho para erro */
+}
+
+input:required:valid:not(:placeholder-shown) {
+    border-color: var(--color-secondary-500); /* Verde para sucesso */
+}
+
+/* ==========================================================================
+   Media Queries - Responsividade 
+   ========================================================================== */
+
+/* Breakpoint 1: Extra Small Devices (Mobile Portrait, < 576px) - Base */
+/* Já coberto pelos estilos base */
+
+/* Breakpoint 2: Small Devices (Mobile Landscape, >= 576px) */
+@media (min-width: 576px) {
+    .container {
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+
+    h1 {
+        font-size: var(--font-size-3xl);
+    }
+
+    /* Layout de 2 colunas para formulário */
+    .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--layout-grid-gap);
+    }
+
+    .form-grid fieldset {
+        grid-column: span 1;
+    }
+
+    .form-grid button[type="submit"] {
+        grid-column: span 2;
+    }
+}
+
+/* Breakpoint 3: Medium Devices (Tablets, >= 768px) */
+@media (min-width: 768px) {
+    /* Layout de 2 colunas para seções principais */
+    #sobre .container,
+    #contato .container {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+    }
+
+    #sobre figure,
+    #contato figure {
+        order: 2; /* Imagem à direita */
+    }
+
+    #contato figure {
+        order: 1; /* Imagem à esquerda */
+    }
+
+    /* Navegação */
+    .menu-toggle {
+        display: none;
+    }
+
+    nav ul {
+        display: flex;
+    }
+}
+
+/* Breakpoint 4: Large Devices (Desktops, >= 992px) */
+@media (min-width: 992px) {
+    h1 {
+        font-size: 3.5rem; /* 56px */
+    }
+
+    /* Layout de 3 colunas para projetos */
+    #projetos .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--layout-grid-gap);
+    }
+
+    #projetos h1 {
+        grid-column: span 3;
+    }
+
+    #projetos h2,
+    #projetos p,
+    #projetos figure,
+    #projetos ul {
+        grid-column: span 1;
+    }
+}
+
+/* Breakpoint 5: Extra Large Devices (Large Desktops, >= 1200px) */
+@media (min-width: 1200px) {
+    .container {
+        padding-left: var(--spacing-lg);
+        padding-right: var(--spacing-lg);
+    }
+}
+
+/* ==========================================================================
+   Estilos Específicos para o Formulário (cadastro.html)
+   ========================================================================== */
+
+/* Ajuste o layout do formulário para usar o grid em telas maiores */
+@media (min-width: 768px) {
+    #cadastro form fieldset {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--layout-grid-gap);
+    }
+
+    #cadastro form fieldset legend {
+        grid-column: span 2;
+    }
+
+    #cadastro form fieldset label,
+    #cadastro form fieldset input,
+    #cadastro form fieldset select,
+    #cadastro form fieldset textarea {
+        grid-column: span 1;
+    }
+
+    /* Ajuste para campos que precisam de linha inteira */
+    #cadastro form fieldset:nth-of-type(1) label[for="nome"],
+    #cadastro form fieldset:nth-of-type(1) input[id="nome"],
+    #cadastro form fieldset:nth-of-type(2) label[for="endereco"],
+    #cadastro form fieldset:nth-of-type(2) input[id="endereco"],
+    #cadastro form fieldset:nth-of-type(3) label[for="habilidades"],
+    #cadastro form fieldset:nth-of-type(3) textarea[id="habilidades"] {
+        grid-column: span 2;
+    }
+}
+
+/* ==========================================================================
+   Navegação Mobile (Menu Hamburguer)
+   ========================================================================== */
+
+@media (max-width: 767px) {
+    header .container {
+        justify-content: space-between;
+    }
+
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-neutral-000);
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+        display: none; /* Escondido por padrão */
+        padding: var(--spacing-sm) 0;
+    }
+
+    nav.open {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+        padding: 0 var(--spacing-md);
+    }
+
+    nav a {
+        display: block;
+        padding: var(--spacing-xs) 0;
+        border-bottom: 1px solid var(--color-neutral-100);
+    }
+
+    nav a::after {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* ==========================================================================
+   Estilos para Imagens Quadradas
+   ========================================================================== */
+
+/* Garante que as figuras tenham uma proporção quadrada em telas maiores */
+@media (min-width: 768px) {
+    section figure {
+        aspect-ratio: 1 / 1;
+    }
+}
+
+/* ==========================================================================
+   Estilos para Listas (projetos.html)
+   ========================================================================== */
+
+#projetos ul {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--spacing-md);
+}
+
+#projetos ul li {
+    background-color: var(--color-neutral-000);
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+    border-left: 4px solid var(--color-secondary-500);
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   Estilos para Endereço (index.html)
+   ========================================================================== */
+
+address {
+    font-style: normal;
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--color-neutral-000);
+    border-left: 4px solid var(--color-accent-500);
+    border-radius: 4px;
+}
+
+address p {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* ===================================
+   Componentes de Feedback
+   ================================= */
+
+.alert {
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.alert-success {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+}
+
+.alert-error {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+}
+
+/* ===============================
+   Componentes de Tags/Badges
+   ============================= */
+
+.badge {
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+}
+
+.badge-primary {
+    color: var(--color-neutral-000);
+    background-color: var(--color-primary-500);
+}
+
+.badge-secondary {
+    color: var(--color-neutral-000);
+    background-color: var(--color-secondary-500);
+}
+
+/* =================================
+   Estilos para o Menu Dropdown 
+   =============================== */
+
+/* Estrutura de Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--color-neutral-000);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: var(--spacing-xs) 0;
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    color: var(--color-neutral-900);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    text-decoration: none;
+    display: block;
+    font-weight: normal;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--color-neutral-100);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* ============================
+   Estilos para Cards 
+   =========================== */
+
+.card {
+    background-color: var(--color-neutral-000);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px; /* Altura fixa para o card */
+    object-fit: cover;
+}
+
+.card-body {
+    padding: var(--spacing-md);
+}
+
+.card-title {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xs);
+}
+
+.card-text {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Responsividade para Cards */
+@media (min-width: 576px) {
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--layout-grid-gap);
+    }
+}
